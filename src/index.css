@@ -1,0 +1,7 @@
+body {
+  background-color: skyblue;
+  background-image: url('../public/img/2.jpg');
+}
+.hello {
+  color: red;
+}
