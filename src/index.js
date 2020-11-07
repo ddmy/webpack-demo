@@ -1,4 +1,4 @@
-// import _ from 'lodash';
+import _ from 'lodash';
 import './index.css'
 import echo from './print.js'
 import { cube } from './math.js';
@@ -7,7 +7,7 @@ import { cube } from './math.js';
 function component() {
   var element = document.createElement('div');
 
-  // element.innerHTML = _.join(['Hello', 'webpack~~~~', '5 cube is', cube(5)], ' ')
+  element.innerHTML = _.join(['Hello', 'webpack~~~~', '5 cube is', cube(5)], ' ')
   element.innerHTML = ['Hello', 'webpack~~~~', '5 cube is', cube(5)].join()
 
   const btn = document.createElement('button')
