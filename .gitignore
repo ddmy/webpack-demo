@@ -6,3 +6,4 @@ npm-debug.log
 *.iml
 build/
 .vscode
+package-lock.json
