@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   entry: {
@@ -22,7 +23,7 @@ module.exports = {
           minSize: 0,
           minChunks: 2,
           name(module, chunks, cacheGroupKey) {
-            const moduleFileName = module.identifier().split('/').reduceRight(item => item);
+            const moduleFileName = path.parse(module.identifier()).name
             const allChunksNames = chunks.map((item) => item.name).join('~');
             return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
           }
@@ -34,6 +35,10 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: '打包 页面'
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerPort: 9998
     })
   ],
   module: {
