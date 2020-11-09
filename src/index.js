@@ -11,11 +11,11 @@ function component() {
   element.innerHTML = ['Hello', 'webpack~~~~', '5 cube is', cube(5)].join()
 
   const btn = document.createElement('button')
-  btn.innerText = '点击我啊兄弟快点的sssss!'
+  btn.innerText = '点击我啊兄弟快点的GGG!'
   
   btn.onclick = () => {
     import(/* webpackChunkName: "print" */ './print.js').then(module => {
-      console.log('异步加载js')
+      console.log('异步加载js~~~~')
       const echo = module.default
       echo()
     })
@@ -34,9 +34,9 @@ function component() {
 
 document.body.appendChild(component());
 
-if (module.hot) {
-  module.hot.accept('./print.js', function() {
-    console.log('Accepting the updated printMe module!');
-    printMe();
-  })
-}
+// if (module.hot) {
+//   module.hot.accept('./print.js', function() {
+//     console.log('@@@@@@@@@Accepting the updated printMe module!');
+//     printMe();
+//   })
+// }

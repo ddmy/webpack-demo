@@ -11,7 +11,7 @@ if (IS_DEV) {
   config = require('../webpack.dev.js')
   const options = {
     contentBase: './dist',
-    hot: true,
+    hot: false,
     host: 'localhost',
     open: true
   }
