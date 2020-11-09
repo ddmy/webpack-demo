@@ -7,10 +7,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
   entry: {
     app: './src/index.js',
-    another: './src/another-module.js'
+    // another: './src/another-module.js'
   },
   output: {
     filename: '[name].bundle.js',
+    chunkFilename: '[name].async.bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
@@ -22,11 +23,7 @@ module.exports = {
           chunks: 'initial',
           minSize: 0,
           minChunks: 2,
-          name(module, chunks, cacheGroupKey) {
-            const moduleFileName = path.parse(module.identifier()).name
-            const allChunksNames = chunks.map((item) => item.name).join('~');
-            return `${cacheGroupKey}-${allChunksNames}-${moduleFileName}`;
-          }
+          name: 'commons'
         }
       }
     }

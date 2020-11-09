@@ -12,7 +12,14 @@ function component() {
 
   const btn = document.createElement('button')
   btn.innerText = '点击我啊兄弟快点的sssss!'
-  btn.onclick = echo
+  
+  btn.onclick = () => {
+    import(/* webpackChunkName: "print" */ './print.js').then(module => {
+      console.log('异步加载js')
+      const echo = module.default
+      echo()
+    })
+  }
 
   element.appendChild(btn)
   element.classList.add('hello')
