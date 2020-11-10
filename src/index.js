@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import './index.css'
-import echo from './print.js'
 import { cube } from './math.js';
 // import girl from '../public/img/2.jpg'
 
