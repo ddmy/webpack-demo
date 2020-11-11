@@ -9,10 +9,13 @@ module.exports = {
   entry: {
     app: './src/index.js',
     // another: './src/another-module.js'
+    vendor: [
+      'lodash'
+    ]
   },
   output: {
-    filename: '[name].bundle.js',
-    chunkFilename: '[name].async.bundle.js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].async.[hash].js',
     path: path.resolve(__dirname, 'dist')
   },
   optimization: {
