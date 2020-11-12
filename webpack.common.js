@@ -7,11 +7,12 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    // app: './src/index.js',
+    test: './src/test.js',
     // another: './src/another-module.js'
-    vendor: [
-      'lodash'
-    ]
+    // vendor: [
+    //   'lodash'
+    // ]
   },
   output: {
     filename: '[name].[hash].js',
@@ -37,13 +38,24 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '打包 页面'
     }),
-    new BundleAnalyzerPlugin({
-      openAnalyzer: false,
-      analyzerPort: 9998
-    })
+    // new BundleAnalyzerPlugin({
+    //   openAnalyzer: false,
+    //   analyzerPort: 9998
+    // })
   ],
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: [require('@babel/plugin-transform-object-rest-spread')]
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']

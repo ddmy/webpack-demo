@@ -4,6 +4,9 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.0.0-beta.0",
     "lodash": "^4.17.20"
   },
   "devDependencies": {
@@ -15,7 +18,7 @@
     "html-webpack-plugin": "^4.5.0",
     "style-loader": "^2.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.44.1",
+    "webpack": "^4.44.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "webpack-cli": "^4.2.0",
     "webpack-dev-middleware": "^4.0.0",
@@ -27,7 +30,8 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.dev.js",
     "server:dev": "cross-env NODE_ENV=development node ./server/index.js",
-    "server:prod": "cross-env NODE_ENV=production node ./server/index.js"
+    "server:prod": "cross-env NODE_ENV=production node ./server/index.js",
+    "webpack": "webpack ./src/test.js"
   },
   "author": "",
   "license": "ISC"
