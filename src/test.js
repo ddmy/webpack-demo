@@ -1,7 +1,15 @@
-const fn = () => console.log('fn')
+const delay = (time) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(true)
+    }, time)
+  })
+}
 
 let play = async name => {
-  await fn()
-  const a = 1
-  return `${a}hello!`
+  console.log('play start!')
+  await delay(2000)
+  console.log('play end!')
 }
+
+play()
